@@ -25,7 +25,7 @@ int main()
 		/*Using fileName string as file name arguement in wordlist.open
 		function. Must be dont using "fileName.c_string" format. C++ is
 		weird like that. Im sure theres a logical reason why.*/
-		wordlist.open(fileName.c_string(), ios::in);
+		wordlist.open(fileName.c_str(), ios::in);
 
 		//Checking for file existance
 		if (wordlist.fail())
@@ -39,10 +39,10 @@ int main()
 		}
 	}while (!validFile);
 
-	while (!wordlist.eof())
+	/*while (!wordlist.eof())
 	{
 		
-	}
+	}*/
 
 
 	return 0;
