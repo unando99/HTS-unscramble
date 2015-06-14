@@ -1,48 +1,41 @@
-/* Wordlist Unscrambler by Ferdinand Uribe.
-Hack this site Programming Challange 1
-1/19/2015 */
+/*Wordlist Unscrambler by Ferdinand Uirbe.
+Hack this Site Programming Challange 1
+version 2.0
+3/26/2014 */
 
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
-
-using namespace std;
 
 int main()
 {
-	string fileName;
-	bool validFile = false;
-	vector<string> wordVect;
-	wordVect.reserve(1000); //Reserver memory block at least 1000 strings.
-	fstream wordlist;
-
-	do {
-
-		cout << "Please enter the wordlist name including extention." << endl;
-		cin >> fileName;
-
-		/*Using fileName string as file name arguement in wordlist.open
-		function. Must be dont using "fileName.c_string" format. C++ is
-		weird like that. Im sure theres a logical reason why.*/
-		wordlist.open(fileName.c_str(), ios::in);
-
-		//Checking for file existance
-		if (wordlist.fail())
+	//Program Instructions
+	std::cout << "Word unscrambler for Hack This Site Programming Challange 1." << std::endl;
+	std::cout << "Instructions: All files should be placed in program directory. \nWordlist should be named 'wordlist.txt'. \nScrambled wordlist should be named 'scram.txt'." << std::endl;
+	std::cout << "Press 'enter' to continue." << std::endl;
+	//std::cin.getline();
+	//std::cin.ingore();
+	//Open Wordlist
+	std::fstream wordlist;
+	wordlist.open("wordlist.txt", std::ios::in);
+	if(wordlist.fail())
+	{
+		std::cout << "Wordlist not present. Please provide a proper wordlist and try again." << std::endl;
+	}
+	else
+	{
+		std::cout << "Wordlist accepted. Continuing..." << std::endl;
+		std::fstream scrambledWords;
+		scrambledWords.open("scram.txt", std::ios::in);
+		if(scrambledWords.fail())
 		{
-			cout << "Wordlist not present. Please try again." << endl;
+			std::cout << "Scrambled Wordlist not present. Please provide a proper wordlist and try again." << std::endl;
 		}
 		else
 		{
-			cout << "Wordlist accepted... Continuing." << endl;
-			validFile = true;
+			std::cout << "Scrambled Wordlist accepted. Continuing..." << std::endl;
 		}
-	}while (!validFile);
-
-	/*while (!wordlist.eof())
-	{
-		
-	}*/
+	}
 
 
 	return 0;
