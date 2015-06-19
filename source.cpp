@@ -18,7 +18,8 @@ int main()
 	wordlist.open("wordlist.txt", std::ios::in);
 	if(wordlist.fail())
 	{
-		std::cout << "Wordlist not present. Please provide a proper wordlist and try again." << std::endl;
+		std::cout << "Wordlist not present. Please provide a proper wordlist and relaunch application." << std::endl;
+		std::cin.get();
 		return 0;
 	}
 	std::cout << "Wordlist accepted. Continuing..." << std::endl;
@@ -26,11 +27,21 @@ int main()
 	scrambledWords.open("scram.txt", std::ios::in);
 	if(scrambledWords.fail())
 	{
-		std::cout << "Scrambled Wordlist not present. Please provide a proper wordlist and try again." << std::endl;
+		std::cout << "Scrambled Wordlist not present. Please provide a proper wordlist and relaunch application." << std::endl;
+		std::cin.get();
 		return 0;
 	}
 	std::cout << "Scrambled Wordlist accepted. Continuing..." << std::endl;
 
+	int numLines = 0;
+	std::string line;
+
+	while (std::getline(scrambledWords, line))
+	{
+		++numLines;
+	}
+
+	std::cout << numLines;
 
 
 	wordlist.close();
