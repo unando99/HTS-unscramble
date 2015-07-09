@@ -41,8 +41,6 @@ int main()
 		++numLines;
 	}
 
-	std::cout << numLines;
-
 
 	wordlist.close();
 	scrambledWords.close();
